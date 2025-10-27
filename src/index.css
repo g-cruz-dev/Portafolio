@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes pulse-custom {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.6);
+    }
+
+    50% {
+        box-shadow: 0 0 40px 20px rgba(20, 184, 166, 0.4);
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulse-custom 4s infinite ease-in-out;
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 10px 20px rgba(20, 184, 166, 0.2);
+  }
+  50% {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 30px rgba(20, 184, 166, 0.3);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s infinite ease-in-out;
+}
+
+@keyframes glow-hover {
+  0% {
+    text-shadow: 0 0 0 rgba(20, 184, 166, 0);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(20, 184, 166, 0.6), 0 0 30px rgba(20, 184, 166, 0.4);
+    transform: scale(1.05);
+  }
+  100% {
+    text-shadow: 0 0 0 rgba(20, 184, 166, 0);
+    transform: scale(1);
+  }
+}
+
+.hover-glow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.hover-glow:hover {
+  animation: glow-hover 1s forwards;
+  cursor: pointer;
+}
