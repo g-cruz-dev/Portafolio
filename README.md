@@ -71,3 +71,4 @@ npm install react-router-dom
 npm install framer-motion
 npm install react-scroll
 npm install @emailjs/browser
+npm install gh-pages --save-dev
