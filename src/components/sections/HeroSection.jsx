@@ -163,7 +163,7 @@ const HeroSection = () => {
               Contactar
             </a>
             <a
-              href="/src/assets/CV_Guillermo_Cruz.pdf"
+              href="/Portafolio/CV_Guillermo_Cruz.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-teal-600 text-white font-bold rounded-full shadow hover:bg-teal-700 transition transform hover:scale-105 animate-pulse-slow"
