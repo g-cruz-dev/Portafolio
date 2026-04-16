@@ -6,8 +6,7 @@ import ProfileImage from "../../assets/images/me.jpg";
 const socialLinks = [
   {
     icon: FaWhatsapp,
-    href: "https://wa.me/593968157701?text=Hola,%20buenos%20días%20Guillermo",
-    label: "Contactar por WhatsApp",
+    href: "https://wa.me/593968157701?text=Saludos%20Guillermo,%20vengo%20de%20tu%20*portfolio*",
     color: "hover:text-green-600 dark:hover:text-green-400",
   },
   {
@@ -109,9 +108,9 @@ const HeroSection = () => {
             className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4"
             variants={itemVariants}
           >
-            Estudiante de{" "}
+            Ingeniero en{" "}
             <span className="text-teal-600 dark:text-teal-400 hover-glow">
-              ingeniería en Sistemas
+              Sistemas de Información
             </span>
           </motion.h1>
 
@@ -119,15 +118,7 @@ const HeroSection = () => {
             className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl"
             variants={itemVariants}
           >
-            Perfil mixto que combina{" "}
-            <span className="text-teal-600 dark:text-teal-400 font-bold hover-glow">
-              visión sistémica
-            </span>{" "}
-            con{" "}
-            <span className="text-teal-600 dark:text-teal-400 font-bold hover-glow">
-              solidez en desarrollo de software
-            </span>
-            . Desarrollador{" "}
+            Desarrollador{" "}
             <span className="text-teal-600 dark:text-teal-400 font-bold hover-glow">
               Full-Stack
             </span>{" "}
@@ -137,11 +128,11 @@ const HeroSection = () => {
             </span>
             . Especializado en{" "}
             <span className="text-teal-600 dark:text-teal-400 font-bold hover-glow">
-              Java/Spring Boot
+              Spring Boot
             </span>{" "}
             para backend y{" "}
             <span className="text-teal-600 dark:text-teal-400 font-bold hover-glow">
-              React/Tailwind CSS
+              React
             </span>{" "}
             para interfaces modernas.
           </motion.p>
@@ -150,23 +141,17 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row gap-4"
             variants={itemVariants}
           >
-            <a
-              href="#projects"
-              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-teal-600 hover:bg-teal-700 shadow-lg transition duration-300 transform hover:scale-[1.02]"
-            >
+            <a href="#projects" className="btn btn-primary">
               Ver Proyectos
             </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center px-8 py-3 border border-teal-600 dark:border-teal-400 text-base font-medium rounded-full text-teal-600 dark:text-teal-400 bg-white dark:bg-gray-800 hover:bg-teal-50 dark:hover:bg-gray-700 transition duration-300 animate-bounce-slow"
-            >
+            <a href="#contact" className="btn btn-primary">
               Contactar
             </a>
             <a
-              href={`${import.meta.env.BASE_URL}CV_Guillermo_Cruz.pdf`}
+              href="https://drive.google.com/file/d/1Mql3B4saNmX_elX3OyuS8B4lI47P7KWK/preview"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-3 bg-teal-600 text-white font-bold rounded-full shadow hover:bg-teal-700 transition transform hover:scale-105 animate-pulse-slow"
+              className="btn btn-primary shadow-lg shadow-teal-500/50"
             >
               Ver CV
             </a>

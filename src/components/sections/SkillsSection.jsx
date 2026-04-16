@@ -4,19 +4,40 @@ import { motion } from "framer-motion";
 
 const experienceData = [
   {
+    title: "Pasante Desarrollador Web y Soporte",
+    company:
+      "Decanato de Posgrado, Educación Continua y Servicios Especializados",
+    duration: "Feb-Abr 2026",
+  },
+  {
+    title: "Soporte de Operaciones de Marketing y Activos",
+    company: "PYCCA",
+    duration: "Contratos eventuales",
+  },
+  {
     title: "Pasante Desarrollador Full-Stack",
     company: "Sudamericana de Software S.A.",
     duration: "Sep-Oct 2025",
   },
   {
-    title: "Landing Page (Luxore)",
-    company: "Desarrollo Web",
-    duration: "Jun 2025",
+    title: "Desarrollo deLanding Page",
+    company: "Luxore.ec",
+    duration: "Jun 2025 - Actualidad",
   },
   {
-    title: "Recuperación de Datos (SICCEC)",
-    company: "Consultoría",
+    title: "Recuperación de Datos",
+    company: "SICCEC",
     duration: "Mar–Abr 2023",
+  },
+  {
+    title: "Gestión de Información",
+    company: "SICCEC",
+    duration: "Abr-May 2021",
+  },
+  {
+    title: "Auxiliar de Operaciones y Gestión de Inventario",
+    company: "ORANGEBOUT S.A.",
+    duration: "Mar 2019",
   },
 ];
 
@@ -24,15 +45,25 @@ const frontendSkills = [
   { name: "HTML5", deviconClass: "devicon-html5-plain colored" },
   { name: "CSS3", deviconClass: "devicon-css3-plain colored" },
   { name: "Tailwind CSS", deviconClass: "devicon-tailwindcss-plain colored" },
+  { name: "Bootstrap", deviconClass: "devicon-bootstrap-plain colored" },
   { name: "JavaScript", deviconClass: "devicon-javascript-plain colored" },
   { name: "React.js", deviconClass: "devicon-react-original colored" },
+  { name: "Metronic", deviconClass: "custom-metronic-icon" },
+  { name: "Kendo UI", deviconClass: "custom-kendo-icon" },
 ];
 
 const backendDBSkills = [
   { name: "Java", deviconClass: "devicon-java-plain colored" },
   { name: "Spring Boot", deviconClass: "devicon-spring-plain colored" },
+  { name: "C#", deviconClass: "devicon-csharp-plain colored" },
+  { name: "ASP.NET Core 9", deviconClass: "devicon-dotnetcore-plain colored" },
+  { name: "PHP", deviconClass: "devicon-php-plain colored" },
   { name: "PostgreSQL", deviconClass: "devicon-postgresql-plain colored" },
   { name: "MySQL", deviconClass: "devicon-mysql-plain colored" },
+  {
+    name: "SQL Server",
+    deviconClass: "devicon-microsoftsqlserver-plain colored",
+  },
   { name: "MongoDB", deviconClass: "devicon-mongodb-plain colored" },
   { name: "Firebase", deviconClass: "devicon-firebase-plain colored" },
 ];

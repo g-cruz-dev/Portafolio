@@ -1,12 +1,36 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+const images = import.meta.glob("../../assets/images/*.png", { eager: true });
+
+const getImage = (name) => {
+  return images[`../../assets/images/${name}`]?.default;
+};
+
 const projectsData = [
+  {
+    title:
+      "Pagina WEB Oficial de la Universidad de Guayaquil, Decanato de Posgrado, Educacion Continua",
+    description:
+      "Sistema web para la gestión eficiente de citas médicas y control de pacientes, utilizando base de datos NoSQL.",
+    imageSrc: getImage("cap_ug.png"),
+    techStack: [
+      "devicon-wordpress-plain colored",
+      "devicon-css3-plain colored",
+      "devicon-bootstrap-plain colored",
+      "devicon-php-plain colored",
+      "devicon-tailwindcss-plain colored",
+      "devicon-javascript-plain colored",
+      "devicon-html5-plain colored",
+    ],
+    demoLink: "https://vigcyp.ug.edu.ec/posgrado_inicio/educacion_continua/",
+    githubLink: "not found",
+  },
   {
     title: "Landing Page para Souvenirs Turísticos",
     description:
       "Desarrollo de una landing page estática para emprendimiento de souvenirs turísticos. Enfocado en diseño responsivo y optimización SEO.",
-    imageSrc: "/src/assets/images/cap_luxore.png",
+    imageSrc: getImage("cap_luxore.png"),
     techStack: [
       "devicon-html5-plain colored",
       "devicon-css3-plain colored",
@@ -19,7 +43,7 @@ const projectsData = [
     title: "Sistema para Suscripción a Cursos",
     description:
       "Sistema web Full-Stack para la gestión y suscripción de cursos en línea. Utilizando tecnologías empresariales y modernas.",
-    imageSrc: "/src/assets/images/cap_luxore.png",
+    imageSrc: getImage("cap_luxore.png"),
     techStack: [
       "devicon-java-plain colored",
       "devicon-spring-plain colored",
@@ -34,7 +58,7 @@ const projectsData = [
     title: "Sistema de Monitoreo de Incidentes",
     description:
       "Desarrollo de un sistema web para monitorear incidentes en tiempo real, mejorando la respuesta operativa.",
-    imageSrc: "/src/assets/images/cap_luxore.png",
+    imageSrc: getImage("cap_luxore.png"),
     techStack: [
       "devicon-java-plain colored",
       "devicon-spring-plain colored",
@@ -49,7 +73,7 @@ const projectsData = [
     title: "Sistema de Control de Citas Médicas",
     description:
       "Sistema web para la gestión eficiente de citas médicas y control de pacientes, utilizando base de datos NoSQL.",
-    imageSrc: "/src/assets/images/cap_luxore.png",
+    imageSrc: getImage("cap_luxore.png"),
     techStack: [
       "devicon-java-plain colored",
       "devicon-spring-plain colored",

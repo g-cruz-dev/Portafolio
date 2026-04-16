@@ -64,6 +64,14 @@
     npm run dev
     ```
 
+    | Comando           | Función técnica                                                 | Cuándo usarlo          | Output             |
+| ----------------- | --------------------------------------------------------------- | ---------------------- | ------------------ |
+| `npm run dev`     | Levanta servidor de desarrollo con HMR (Hot Module Replacement) | Desarrollo diario      | App en `localhost` |
+| `npm run build`   | Compila, optimiza y genera versión de producción                | Antes de deploy        | `/dist`            |
+| `npm run preview` | Sirve localmente el build de producción                         | Validar antes de subir | Simulación real    |
+| `npm run deploy`  | (custom) Publica `/dist` a GitHub Pages                         | Deploy final           | Web online         |
+
+
 ---
 
 npm install react-icons

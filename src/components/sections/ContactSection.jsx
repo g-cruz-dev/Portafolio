@@ -286,7 +286,7 @@ const ContactSection = () => {
           <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 pt-2">
             <motion.button
               type="submit"
-              className="w-full sm:w-auto px-8 py-3 text-white bg-teal-600 rounded-full font-bold shadow-lg shadow-teal-500/50 hover:bg-teal-700 transition-all duration-300 transform hover:scale-[1.01] focus:outline-none focus:ring-4 focus:ring-teal-300 dark:focus:ring-teal-700 hover-glow"
+              className="btn btn-primary shadow-lg shadow-teal-500/50"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

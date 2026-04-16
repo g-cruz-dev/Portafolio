@@ -27,10 +27,6 @@
   }
 }
 
-.animate-bounce-slow {
-  animation: bounce-slow 3s infinite ease-in-out;
-}
-
 @keyframes glow-hover {
   0% {
     text-shadow: 0 0 0 rgba(20, 184, 166, 0);
@@ -54,4 +50,72 @@
 .hover-glow:hover {
   animation: glow-hover 1s forwards;
   cursor: pointer;
+}
+
+.btn {
+  @apply relative inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-full transition-all duration-300 overflow-hidden;
+}
+
+.btn-primary {
+  @apply bg-teal-600 text-white;
+}
+
+/* Hover: inversión + borde */
+.btn-primary:hover {
+  @apply bg-transparent text-teal-600 border border-teal-600;
+}
+
+.btn-outline:hover {
+  @apply bg-teal-600 text-white;
+}
+
+/* Efecto luz borde */
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(120deg, transparent, #14b8a6, transparent);
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+
+  -webkit-mask-composite: xor;
+
+  mask: 
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+
+  mask-composite: exclude;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+/* Custom Icon Integration */
+.custom-metronic-icon::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-image: url('https://preview.keenthemes.com/metronic8/demo1/assets/media/logos/favicon.ico');
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+
+.custom-kendo-icon::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-image: url('https://www.telerik.com/favicon.ico');
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
 }
