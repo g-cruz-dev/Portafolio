@@ -1,18 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const images = import.meta.glob("../../assets/images/*.png", { eager: true });
-
 const getImage = (name) => {
-  return images[`../../assets/images/${name}`]?.default;
+  const baseUrl = import.meta.env.BASE_URL;
+  return `${baseUrl}${name}`;
 };
 
 const projectsData = [
   {
-    title:
-      "Pagina WEB Oficial de la Universidad de Guayaquil, Decanato de Posgrado, Educacion Continua",
+    title: "Pagina WEB Oficial de la Universidad de Guayaquil",
     description:
-      "Sistema web para la gestión eficiente de citas médicas y control de pacientes, utilizando base de datos NoSQL.",
+      "Sección de Decanato de Posgrado, Educacion Continua, mejora en breakpoint, actualización de contenidos y mejora de diseño responsivo.",
     imageSrc: getImage("cap_ug.png"),
     techStack: [
       "devicon-wordpress-plain colored",
@@ -37,7 +35,7 @@ const projectsData = [
       "devicon-javascript-plain colored",
     ],
     demoLink: "https://luxore-ec.github.io/luxorepage/",
-    githubLink: "not found",
+    githubLink: "https://github.com/g-cruz-dev/Portafolio/tree/gh-pages",
   },
   {
     title: "Sistema para Suscripción a Cursos",
@@ -51,8 +49,8 @@ const projectsData = [
       "devicon-postgresql-plain colored",
       "devicon-tailwindcss-plain colored",
     ],
-    demoLink: "https://luxore-ec.github.io/luxorepage/",
-    githubLink: "not found",
+    demoLink: "not found", // Caso sin demo
+    githubLink: "not found", // Caso sin repo -> Mostrará "Privado"
   },
   {
     title: "Sistema de Monitoreo de Incidentes",
@@ -66,7 +64,7 @@ const projectsData = [
       "devicon-postgresql-plain colored",
       "devicon-tailwindcss-plain colored",
     ],
-    demoLink: "https://luxore-ec.github.io/luxorepage/",
+    demoLink: "not found",
     githubLink: "not found",
   },
   {
@@ -81,7 +79,7 @@ const projectsData = [
       "devicon-mongodb-plain colored",
       "devicon-tailwindcss-plain colored",
     ],
-    demoLink: "https://luxore-ec.github.io/luxorepage/",
+    demoLink: "not found",
     githubLink: "not found",
   },
 ];
@@ -115,63 +113,86 @@ const ProjectCard = ({
   techStack,
   demoLink,
   githubLink,
-}) => (
-  <motion.article
-    className="project-card flex flex-col bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-2xl dark:shadow-gray-950/50 transition-all duration-300 group"
-    variants={cardVariants}
-    whileHover="hover"
-  >
-    <header>
-      <div className="relative w-full h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
-        <img
-          src={imageSrc}
-          alt={`Captura de pantalla de ${title}`}
-          loading="eager"
-          className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-80"
-        />
+}) => {
+  // Función de utilidad para validar si el link existe y es válido
+  const isValidLink = (link) => link && link !== "not found" && link !== "";
+
+  const hasDemo = isValidLink(demoLink);
+  const hasGit = isValidLink(githubLink);
+
+  return (
+    <motion.article
+      className="project-card flex flex-col bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-2xl dark:shadow-gray-950/50 transition-all duration-300 group"
+      variants={cardVariants}
+      whileHover="hover"
+    >
+      <header>
+        <div className="relative w-full h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
+          <img
+            src={imageSrc}
+            alt={`Captura de pantalla de ${title}`}
+            loading="eager"
+            className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-80"
+          />
+        </div>
+        <h3 className="text-xl font-bold p-4 pb-0 text-gray-900 dark:text-white group-hover:text-teal-600 transition duration-300 hover-glow">
+          {title}
+        </h3>
+      </header>
+
+      <div className="p-4 pt-2 flex flex-col flex-grow">
+        <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 flex-grow">
+          {description}
+        </p>
+
+        <footer className="mt-4">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            {techStack.map((techClass, index) => (
+              <TechIcon key={index} deviconClass={techClass} />
+            ))}
+          </div>
+
+          <div className="flex items-center space-x-4 h-10">
+            {/* Lógica de botones */}
+            {hasDemo && (
+              <a
+                href={demoLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 text-sm font-medium text-teal-600 dark:text-teal-400 hover:text-teal-800 dark:hover:text-teal-300 transition-colors group-hover:underline"
+              >
+                <i className="bi bi-link-45deg text-lg"></i>
+                <span>Demo Live</span>
+              </a>
+            )}
+
+            {hasGit && (
+              <a
+                href={githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
+              >
+                <i className="devicon-github-original text-lg"></i>
+                <span>GitHub</span>
+              </a>
+            )}
+
+            {/* Caso Ingenioso: Si no tiene ninguna de las dos */}
+            {!hasDemo && !hasGit && (
+              <div className="flex items-center space-x-2 text-xs font-semibold text-gray-500 dark:text-gray-500 bg-gray-100 dark:bg-gray-700/50 px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700">
+                <i className="bi bi-lock-fill"></i>
+                <span className="uppercase tracking-wider">
+                  Proyecto Privado / NDA
+                </span>
+              </div>
+            )}
+          </div>
+        </footer>
       </div>
-      <h3 className="text-xl font-bold p-4 pb-0 text-gray-900 dark:text-white group-hover:text-teal-600 transition duration-300 hover-glow">
-        {title}
-      </h3>
-    </header>
-
-    <div className="p-4 pt-2 flex flex-col flex-grow">
-      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 flex-grow">
-        {description}
-      </p>
-
-      <footer className="mt-4">
-        <div className="flex flex-wrap items-center gap-2 mb-3">
-          {techStack.map((techClass, index) => (
-            <TechIcon key={index} deviconClass={techClass} />
-          ))}
-        </div>
-        <div className="flex space-x-3">
-          <a
-            href={demoLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 text-sm font-medium text-teal-600 dark:text-teal-400 hover:text-teal-800 dark:hover:text-teal-300 transition-colors group-hover:underline"
-            aria-label={`Ver demostración del proyecto ${title}`}
-          >
-            <i className="bi bi-link-45deg text-lg"></i>
-            <span>Demo Live</span>
-          </a>
-          <a
-            href={githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
-            aria-label={`Ver repositorio de ${title} en GitHub`}
-          >
-            <i className="devicon-github-original text-lg"></i>
-            <span>GitHub</span>
-          </a>
-        </div>
-      </footer>
-    </div>
-  </motion.article>
-);
+    </motion.article>
+  );
+};
 
 const ProjectsSection = () => {
   return (

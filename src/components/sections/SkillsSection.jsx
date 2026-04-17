@@ -1,4 +1,3 @@
-// src/components/sections/SkillsSection.jsx
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -20,7 +19,7 @@ const experienceData = [
     duration: "Sep-Oct 2025",
   },
   {
-    title: "Desarrollo deLanding Page",
+    title: "Desarrollo de Landing Page",
     company: "Luxore.ec",
     duration: "Jun 2025 - Actualidad",
   },
@@ -42,22 +41,25 @@ const experienceData = [
 ];
 
 const frontendSkills = [
+  { name: "JavaScript", deviconClass: "devicon-javascript-plain colored" },
   { name: "HTML5", deviconClass: "devicon-html5-plain colored" },
   { name: "CSS3", deviconClass: "devicon-css3-plain colored" },
+  { name: "React.js", deviconClass: "devicon-react-original colored" },
   { name: "Tailwind CSS", deviconClass: "devicon-tailwindcss-plain colored" },
   { name: "Bootstrap", deviconClass: "devicon-bootstrap-plain colored" },
-  { name: "JavaScript", deviconClass: "devicon-javascript-plain colored" },
-  { name: "React.js", deviconClass: "devicon-react-original colored" },
   { name: "Metronic", deviconClass: "custom-metronic-icon" },
   { name: "Kendo UI", deviconClass: "custom-kendo-icon" },
 ];
 
-const backendDBSkills = [
+const backendSkills = [
   { name: "Java", deviconClass: "devicon-java-plain colored" },
   { name: "Spring Boot", deviconClass: "devicon-spring-plain colored" },
   { name: "C#", deviconClass: "devicon-csharp-plain colored" },
   { name: "ASP.NET Core 9", deviconClass: "devicon-dotnetcore-plain colored" },
   { name: "PHP", deviconClass: "devicon-php-plain colored" },
+];
+
+const dbSkills = [
   { name: "PostgreSQL", deviconClass: "devicon-postgresql-plain colored" },
   { name: "MySQL", deviconClass: "devicon-mysql-plain colored" },
   {
@@ -68,6 +70,15 @@ const backendDBSkills = [
   { name: "Firebase", deviconClass: "devicon-firebase-plain colored" },
 ];
 
+const toolSkills = [
+  { name: "VS Code", deviconClass: "devicon-vscode-plain colored" },
+  { name: "Git", deviconClass: "devicon-git-plain colored" },
+  { name: "GitHub", deviconClass: "devicon-github-original colored" },
+  { name: "IntelliJ IDEA", deviconClass: "devicon-intellij-plain colored" },
+  { name: "Docker", deviconClass: "devicon-docker-plain colored" },
+  { name: "Google Colab", deviconClass: "devicon-googlecloud-plain colored" },
+];
+
 const softSkills = [
   "Pensamiento Sistémico",
   "Criterio Técnico-Estratégico",
@@ -76,7 +87,6 @@ const softSkills = [
   "Comunicación Técnica Multinivel",
 ];
 
-// Variants para animaciones
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
@@ -146,9 +156,10 @@ const SkillsSection = () => {
         Stack Tecnológico & Habilidades
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        {/* COLUMNA 1: EXPERIENCIA (Diseño original restaurado) */}
         <section className="lg:col-span-1 bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl dark:shadow-gray-950/50 hover:shadow-2xl transition-shadow duration-300">
-          <h3 className="text-2xl font-semibold mb-4 pb-2 border-b-2 border-teal-600 dark:text-teal-400 dark:border-teal-400 transition duration-300 hover:text-teal-500 dark:hover:text-teal-300 hover:shadow-lg cursor-pointer">
+          <h3 className="text-2xl font-semibold mb-4 pb-2 border-b-2 border-teal-600 dark:text-teal-400 dark:border-teal-400">
             Experiencia
           </h3>
           <ul className="list-none space-y-4 pl-0">
@@ -158,31 +169,55 @@ const SkillsSection = () => {
           </ul>
         </section>
 
+        {/* COLUMNA CENTRAL (Distribución de tarjetas 2x2 para apilado vertical) */}
         <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <section className="p-6 rounded-2xl bg-gray-100 dark:bg-gray-800 shadow-xl dark:shadow-gray-950/50 transition-shadow duration-300 hover:shadow-2xl">
-            <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white border-b border-teal-300 dark:border-teal-700 pb-2">
-              Frontend
-            </h3>
-            <div className="flex flex-wrap justify-start gap-5">
-              {frontendSkills.map((skill) => (
-                <TechIconItem key={skill.name} {...skill} />
-              ))}
-            </div>
-          </section>
-
-          <section className="p-6 rounded-2xl bg-gray-100 dark:bg-gray-800 shadow-xl dark:shadow-gray-950/50 transition-shadow duration-300 hover:shadow-2xl">
-            <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white border-b border-teal-300 dark:border-teal-700 pb-2">
-              Backend & DB
-            </h3>
-            <div className="flex flex-wrap justify-start gap-5">
-              {backendDBSkills.map((skill) => (
-                <TechIconItem key={skill.name} {...skill} />
-              ))}
-            </div>
-          </section>
+          <div className="flex flex-col gap-6">
+            <section className="p-6 rounded-2xl bg-gray-100 dark:bg-gray-800 shadow-xl dark:shadow-gray-950/50 transition-shadow duration-300 hover:shadow-2xl">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white border-b border-teal-300 dark:border-teal-700 pb-2">
+                Frontend
+              </h3>
+              <div className="flex flex-wrap gap-5">
+                {frontendSkills.map((skill) => (
+                  <TechIconItem key={skill.name} {...skill} />
+                ))}
+              </div>
+            </section>
+            <section className="p-6 rounded-2xl bg-gray-100 dark:bg-gray-800 shadow-xl dark:shadow-gray-950/50 transition-shadow duration-300 hover:shadow-2xl">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white border-b border-teal-300 dark:border-teal-700 pb-2">
+                Bases de Datos
+              </h3>
+              <div className="flex flex-wrap gap-5">
+                {dbSkills.map((skill) => (
+                  <TechIconItem key={skill.name} {...skill} />
+                ))}
+              </div>
+            </section>
+          </div>
+          <div className="flex flex-col gap-6">
+            <section className="p-6 rounded-2xl bg-gray-100 dark:bg-gray-800 shadow-xl dark:shadow-gray-950/50 transition-shadow duration-300 hover:shadow-2xl">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white border-b border-teal-300 dark:border-teal-700 pb-2">
+                Backend
+              </h3>
+              <div className="flex flex-wrap gap-5">
+                {backendSkills.map((skill) => (
+                  <TechIconItem key={skill.name} {...skill} />
+                ))}
+              </div>
+            </section>
+            <section className="p-6 rounded-2xl bg-gray-100 dark:bg-gray-800 shadow-xl dark:shadow-gray-950/50 transition-shadow duration-300 hover:shadow-2xl">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white border-b border-teal-300 dark:border-teal-700 pb-2">
+                Herramientas
+              </h3>
+              <div className="flex flex-wrap gap-5">
+                {toolSkills.map((skill) => (
+                  <TechIconItem key={skill.name} {...skill} />
+                ))}
+              </div>
+            </section>
+          </div>
         </div>
 
-        {/* Soft Skills */}
+        {/* COLUMNA 4: SOFT SKILLS (Diseño original restaurado) */}
         <section className="lg:col-span-1 bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl dark:shadow-gray-950/50 hover:shadow-2xl transition-shadow duration-300">
           <h3 className="text-2xl font-semibold mb-4 pb-2 border-b-2 border-teal-600 dark:text-teal-400 dark:border-teal-400">
             Soft Skills

@@ -49,8 +49,6 @@ const SocialLink = ({ href, Icon: IconComponent, label, hoverClass }) => (
 );
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
     <motion.footer
       className="mt-16 p-8 bg-gray-900 dark:bg-gray-950 text-white shadow-inner transition-colors duration-500"
@@ -58,10 +56,11 @@ const Footer = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+      {/* Contenedor principal: justify-center para centrado horizontal total */}
+      <div className="max-w-7xl mx-auto flex justify-center items-center">
         <motion.nav
           aria-label="Redes sociales"
-          className="flex items-center space-x-6"
+          className="flex items-center space-x-8" // Aumentado el espacio para mejor visualización
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
@@ -70,25 +69,7 @@ const Footer = () => {
             <SocialLink key={index} {...link} />
           ))}
         </motion.nav>
-
-        <motion.p
-          className="text-sm text-gray-400 mt-4 md:mt-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-        >
-          &copy; {currentYear} g_crvz. Todos los derechos reservados.
-        </motion.p>
       </div>
-
-      <motion.div
-        className="mt-6 text-center text-xs text-gray-500 dark:text-gray-400"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6, duration: 0.6 }}
-      >
-        Diseño y desarrollo por Guillermo Cruz | React & TailwindCSS
-      </motion.div>
     </motion.footer>
   );
 };

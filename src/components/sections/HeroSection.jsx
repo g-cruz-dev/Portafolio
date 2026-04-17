@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaWhatsapp, FaGithub, FaLinkedinIn, FaEnvelope } from "react-icons/fa";
-import ProfileImage from "../../assets/images/me.jpg";
+import ProfileImage from "/me.jpg";
 
 const socialLinks = [
   {
