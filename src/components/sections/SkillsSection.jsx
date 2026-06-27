@@ -3,6 +3,11 @@ import { motion } from "framer-motion";
 
 const experienceData = [
   {
+    title: "Desarrollador Full-Stack (Proyecto Serverless)",
+    company: "Plataforma de Pronósticos Deportivos",
+    duration: "Jun 2026",
+  },
+  {
     title: "Pasante Desarrollador Web y Soporte",
     company:
       "Decanato de Posgrado, Educación Continua y Servicios Especializados",
@@ -47,27 +52,27 @@ const frontendSkills = [
   { name: "React.js", deviconClass: "devicon-react-original colored" },
   { name: "Tailwind CSS", deviconClass: "devicon-tailwindcss-plain colored" },
   { name: "Bootstrap", deviconClass: "devicon-bootstrap-plain colored" },
-  { name: "Metronic", deviconClass: "custom-metronic-icon" },
-  { name: "Kendo UI", deviconClass: "custom-kendo-icon" },
+  { /* name: "Metronic", deviconClass: "custom-metronic-icon"*/},
+  { /*name: "Kendo UI", deviconClass: "custom-kendo-icon" */
+  },
 ];
 
 const backendSkills = [
   { name: "Java", deviconClass: "devicon-java-plain colored" },
   { name: "Spring Boot", deviconClass: "devicon-spring-plain colored" },
-  { name: "C#", deviconClass: "devicon-csharp-plain colored" },
-  { name: "ASP.NET Core 9", deviconClass: "devicon-dotnetcore-plain colored" },
-  { name: "PHP", deviconClass: "devicon-php-plain colored" },
+  { name: "Google Apps Script", deviconClass: "devicon-google-plain colored" },
+  { /*name: "C#", deviconClass: "devicon-csharp-plain colored" */},
+  { /*name: "ASP.NET Core 9", deviconClass: "devicon-dotnetcore-plain colored" */},
+  { /*name: "PHP", deviconClass: "devicon-php-plain colored" */},
 ];
 
 const dbSkills = [
   { name: "PostgreSQL", deviconClass: "devicon-postgresql-plain colored" },
   { name: "MySQL", deviconClass: "devicon-mysql-plain colored" },
-  {
-    name: "SQL Server",
-    deviconClass: "devicon-microsoftsqlserver-plain colored",
-  },
-  { name: "MongoDB", deviconClass: "devicon-mongodb-plain colored" },
-  { name: "Firebase", deviconClass: "devicon-firebase-plain colored" },
+  { name: "SQL Server", deviconClass: "devicon-microsoftsqlserver-plain colored"},
+  { name: "Google Sheets DB", deviconClass: "devicon-googlecloud-plain colored" },
+  { /*name: "MongoDB", deviconClass: "devicon-mongodb-plain colored" */},
+  { /*name: "Firebase", deviconClass: "devicon-firebase-plain colored" */},
 ];
 
 const toolSkills = [
@@ -76,7 +81,7 @@ const toolSkills = [
   { name: "GitHub", deviconClass: "devicon-github-original colored" },
   { name: "IntelliJ IDEA", deviconClass: "devicon-intellij-plain colored" },
   { name: "Docker", deviconClass: "devicon-docker-plain colored" },
-  { name: "Google Colab", deviconClass: "devicon-googlecloud-plain colored" },
+  { name: "Google Colab, Apps Script, Cloud", deviconClass: "devicon-googlecloud-plain colored" },
 ];
 
 const softSkills = [

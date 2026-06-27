@@ -8,6 +8,21 @@ const getImage = (name) => {
 
 const projectsData = [
   {
+    title: "Polla Mundialista 2026",
+    description:
+      "Plataforma de pronósticos deportivos en producción para el Mundial FIFA 2026.",
+    imageSrc: getImage("cap_mundial.png"),
+    techStack: [
+      "devicon-html5-plain colored",
+      "devicon-css3-plain colored",
+      "devicon-javascript-plain colored",
+      "devicon-google-plain colored",
+      "devicon-github-original colored",
+    ],
+    demoLink: "https://luxore-ec.github.io/mundial2026/",
+    githubLink: "not found",
+  },
+  {
     title: "Pagina WEB Oficial de la Universidad de Guayaquil",
     description:
       "Sección de Decanato de Posgrado, Educacion Continua, mejora en breakpoint, actualización de contenidos y mejora de diseño responsivo.",
