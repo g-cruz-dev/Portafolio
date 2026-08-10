@@ -5,7 +5,7 @@ const experienceData = [
   {
     title: "Desarrollador Full-Stack (Proyecto Serverless)",
     company: "Plataforma de Pronósticos Deportivos",
-    duration: "Jun 2026",
+    duration: "Jun-Jul 2026",
   },
   {
     title: "Pasante Desarrollador Web y Soporte",
