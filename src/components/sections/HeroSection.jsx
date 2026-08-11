@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { FaWhatsapp, FaGithub, FaLinkedinIn, FaEnvelope } from "react-icons/fa";
 import ProfileImage from "/me.jpg";
 
@@ -7,6 +7,7 @@ const socialLinks = [
   {
     icon: FaWhatsapp,
     href: "https://wa.me/593968157701?text=Saludos%20Guillermo,%20vengo%20de%20tu%20*portfolio*",
+    label: "Contactar por WhatsApp",
     color: "hover:text-green-600 dark:hover:text-green-400",
   },
   {
@@ -45,20 +46,19 @@ const itemVariants = {
 
 const HeroSection = () => {
   return (
-    <motion.section
-      id="about"
+    <m.section
       className="max-w-7xl mx-auto p-4 md:p-8 pt-10 md:pt-16 space-y-16"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
     >
-      <div id="home" className="grid lg:grid-cols-3 gap-8 items-center">
-        <motion.figure
+      <div  className="grid lg:grid-cols-3 gap-8 items-center">
+        <m.figure
           className="lg:col-span-1 flex flex-col items-center justify-center bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-2xl dark:shadow-teal-900/50"
           variants={itemVariants}
         >
-          <motion.img
+          <m.img
             src={ProfileImage}
             alt="Fotografía profesional de Guillermo Cruz, desarrollador Full-Stack."
             loading="eager"
@@ -67,20 +67,20 @@ const HeroSection = () => {
             transition={{ duration: 0.5 }}
           />
           <figcaption className="text-center mt-6">
-            <motion.h2
+            <m.h2
               className="text-3xl font-bold text-gray-900 dark:text-white"
               variants={itemVariants}
             >
               Guillermo Cruz
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               className="text-xl font-medium text-teal-600 dark:text-teal-400 mt-1 inline-block px-3 py-1 rounded-lg cursor-pointer hover:text-teal-500 dark:hover:text-teal-300 hover:bg-gray-100/20 dark:hover:bg-gray-700/30 transition duration-300 hover-glow"
               variants={itemVariants}
             >
               Dev Full-Stack
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               className="flex justify-center space-x-4 mt-4"
               variants={itemVariants}
             >
@@ -96,15 +96,15 @@ const HeroSection = () => {
                   <link.icon />
                 </a>
               ))}
-            </motion.div>
+            </m.div>
           </figcaption>
-        </motion.figure>
+        </m.figure>
 
-        <motion.div
+        <m.div
           className="lg:col-span-2 bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-2xl dark:shadow-teal-900/50 h-full flex flex-col justify-center"
           variants={itemVariants}
         >
-          <motion.h1
+          <m.h1
             className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4"
             variants={itemVariants}
           >
@@ -112,9 +112,9 @@ const HeroSection = () => {
             <span className="text-teal-600 dark:text-teal-400 hover-glow">
               Sistemas de Información
             </span>
-          </motion.h1>
+          </m.h1>
 
-          <motion.p
+          <m.p
             className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl"
             variants={itemVariants}
           >
@@ -135,9 +135,9 @@ const HeroSection = () => {
               React
             </span>{" "}
             para interfaces modernas.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             className="flex flex-col sm:flex-row gap-4"
             variants={itemVariants}
           >
@@ -155,10 +155,10 @@ const HeroSection = () => {
             >
               Ver CV
             </a>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </div>
-    </motion.section>
+    </m.section>
   );
 };
 

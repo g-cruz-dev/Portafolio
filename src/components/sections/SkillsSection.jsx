@@ -1,5 +1,6 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
+import { MdEmail, MdVerifiedUser } from "react-icons/md";
 
 const experienceData = [
   {
@@ -52,18 +53,15 @@ const frontendSkills = [
   { name: "React.js", deviconClass: "devicon-react-original colored" },
   { name: "Tailwind CSS", deviconClass: "devicon-tailwindcss-plain colored" },
   { name: "Bootstrap", deviconClass: "devicon-bootstrap-plain colored" },
-  { /* name: "Metronic", deviconClass: "custom-metronic-icon"*/},
-  { /*name: "Kendo UI", deviconClass: "custom-kendo-icon" */
-  },
 ];
 
 const backendSkills = [
   { name: "Java", deviconClass: "devicon-java-plain colored" },
   { name: "Spring Boot", deviconClass: "devicon-spring-plain colored" },
   { name: "Google Apps Script", deviconClass: "devicon-google-plain colored" },
-  { /*name: "C#", deviconClass: "devicon-csharp-plain colored" */},
-  { /*name: "ASP.NET Core 9", deviconClass: "devicon-dotnetcore-plain colored" */},
-  { /*name: "PHP", deviconClass: "devicon-php-plain colored" */},
+  { name: "C#", deviconClass: "devicon-csharp-plain colored" },
+  { name: "ASP.NET Core 10", deviconClass: "devicon-dotnetcore-plain colored"},
+  { name: "PHP", deviconClass: "devicon-php-plain colored" },
 ];
 
 const dbSkills = [
@@ -71,8 +69,8 @@ const dbSkills = [
   { name: "MySQL", deviconClass: "devicon-mysql-plain colored" },
   { name: "SQL Server", deviconClass: "devicon-microsoftsqlserver-plain colored"},
   { name: "Google Sheets DB", deviconClass: "devicon-googlecloud-plain colored" },
-  { /*name: "MongoDB", deviconClass: "devicon-mongodb-plain colored" */},
-  { /*name: "Firebase", deviconClass: "devicon-firebase-plain colored" */},
+  { name: "MongoDB", deviconClass: "devicon-mongodb-plain colored" },
+  { name: "Firebase", deviconClass: "devicon-firebase-plain colored" },
 ];
 
 const toolSkills = [
@@ -81,7 +79,13 @@ const toolSkills = [
   { name: "GitHub", deviconClass: "devicon-github-original colored" },
   { name: "IntelliJ IDEA", deviconClass: "devicon-intellij-plain colored" },
   { name: "Docker", deviconClass: "devicon-docker-plain colored" },
-  { name: "Google Colab, Apps Script, Cloud", deviconClass: "devicon-googlecloud-plain colored" },
+  {
+    name: "Google Colab, Apps Script, Cloud",
+    deviconClass: "devicon-googlecloud-plain colored",
+  },
+  { name: "Blender", deviconClass: "devicon-blender-original colored" },
+  { name: "EmailJS", Icon: MdEmail },
+  { name: "Google reCAPTCHA", Icon: MdVerifiedUser },
 ];
 
 const softSkills = [
@@ -107,20 +111,22 @@ const itemVariants = {
   hover: { scale: 1.05 },
 };
 
-const TechIconItem = ({ name, deviconClass }) => (
-  <motion.i
-    className={`${deviconClass} text-5xl cursor-pointer`}
+const TechIconItem = ({ name, deviconClass, Icon }) => (
+  <m.div
+    className="text-5xl cursor-pointer text-gray-700 dark:text-gray-300"
     role="img"
     aria-label={name}
     title={name}
     variants={itemVariants}
     whileHover="hover"
-  />
+  >
+    {Icon ? <Icon /> : <i className={deviconClass}></i>}
+  </m.div>
 );
 
 const ExperienceItem = ({ title, company, duration }) => (
-  <motion.li
-    className="group p-3 border-l-4 border-teal-500 bg-gray-50 dark:bg-gray-700/50 rounded-r transition-all duration-300 hover:bg-teal-50 dark:hover:bg-gray-700"
+  <m.li
+    className="group p-3 border-l-4 border-teal-500 bg-gray-50 dark:bg-gray-700/50 rounded-r transition-colors duration-300 hover:bg-teal-50 dark:hover:bg-gray-700"
     variants={itemVariants}
     whileHover="hover"
   >
@@ -130,22 +136,22 @@ const ExperienceItem = ({ title, company, duration }) => (
     <span className="block text-sm text-gray-600 dark:text-gray-400">
       {company} | {duration}
     </span>
-  </motion.li>
+  </m.li>
 );
 
 const SoftSkillItem = ({ skill }) => (
-  <motion.li
-    className="soft-skill p-3 border-l-4 border-teal-500 bg-gray-50 dark:bg-gray-700/50 rounded-r shadow-sm font-medium transition-all duration-300 hover:bg-teal-100/50 dark:hover:bg-teal-900/40 hover:translate-x-1 hover:shadow-lg text-gray-800 dark:text-white"
+  <m.li
+    className="soft-skill p-3 border-l-4 border-teal-500 bg-gray-50 dark:bg-gray-700/50 rounded-r shadow-sm font-medium transition-[color,background-color,box-shadow,transform] duration-300 hover:bg-teal-100/50 dark:hover:bg-teal-900/40 hover:translate-x-1 hover:shadow-lg text-gray-800 dark:text-white"
     variants={itemVariants}
     whileHover="hover"
   >
     {skill}
-  </motion.li>
+  </m.li>
 );
 
 const SkillsSection = () => {
   return (
-    <motion.section
+    <m.section
       id="skills"
       aria-labelledby="skills-heading"
       className="space-y-8 max-w-7xl mx-auto p-4 md:p-8"
@@ -168,8 +174,8 @@ const SkillsSection = () => {
             Experiencia
           </h3>
           <ul className="list-none space-y-4 pl-0">
-            {experienceData.map((item, index) => (
-              <ExperienceItem key={index} {...item} />
+            {experienceData.map((item) => (
+              <ExperienceItem key={item.title} {...item} />
             ))}
           </ul>
         </section>
@@ -228,13 +234,13 @@ const SkillsSection = () => {
             Soft Skills
           </h3>
           <ul className="list-none space-y-3 pl-0">
-            {softSkills.map((skill, index) => (
-              <SoftSkillItem key={index} skill={skill} />
+            {softSkills.map((skill) => (
+              <SoftSkillItem key={skill} skill={skill} />
             ))}
           </ul>
         </section>
       </div>
-    </motion.section>
+    </m.section>
   );
 };
 

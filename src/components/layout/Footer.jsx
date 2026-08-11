@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   BsWhatsapp,
   BsLinkedin,
@@ -35,7 +35,7 @@ const socialLinks = [
 ];
 
 const SocialLink = ({ href, Icon: IconComponent, label, hoverClass }) => (
-  <motion.a
+  <m.a
     href={href}
     target="_blank"
     rel="noopener noreferrer"
@@ -45,12 +45,12 @@ const SocialLink = ({ href, Icon: IconComponent, label, hoverClass }) => (
     className={`text-3xl transition-colors duration-300 ${hoverClass}`}
   >
     <IconComponent />
-  </motion.a>
+  </m.a>
 );
 
 const Footer = () => {
   return (
-    <motion.footer
+    <m.footer
       className="mt-16 p-8 bg-gray-900 dark:bg-gray-950 text-white shadow-inner transition-colors duration-500"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -58,19 +58,19 @@ const Footer = () => {
     >
       {/* Contenedor principal: justify-center para centrado horizontal total */}
       <div className="max-w-7xl mx-auto flex justify-center items-center">
-        <motion.nav
+        <m.nav
           aria-label="Redes sociales"
           className="flex items-center space-x-8" // Aumentado el espacio para mejor visualización
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          {socialLinks.map((link, index) => (
-            <SocialLink key={index} {...link} />
+          {socialLinks.map((link) => (
+            <SocialLink key={link.label} {...link} />
           ))}
-        </motion.nav>
+        </m.nav>
       </div>
-    </motion.footer>
+    </m.footer>
   );
 };
 

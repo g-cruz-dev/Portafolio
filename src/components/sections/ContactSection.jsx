@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useRef } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+import { m } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import {
   validateName,
@@ -44,7 +45,7 @@ const FieldWrapper = ({
       </label>
 
       {isTextarea ? (
-        <motion.textarea
+        <m.textarea
           id={id}
           name={name}
           rows={rows || 6}
@@ -63,7 +64,7 @@ const FieldWrapper = ({
           transition={{ duration: 0.3 }}
         />
       ) : (
-        <motion.input
+        <m.input
           id={id}
           name={name}
           type={type}
@@ -100,6 +101,7 @@ const ContactSection = () => {
     subject: "",
     body: "",
   });
+  
 
   const [formValidity, setFormValidity] = useState({
     name: false,
@@ -108,6 +110,7 @@ const ContactSection = () => {
     subject: false,
     body: false,
   });
+  const captchaRef = useRef(null);
 
   const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -128,10 +131,16 @@ const ContactSection = () => {
       body: false,
     });
     setStatus(null);
+    captchaRef.current = null;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!captchaRef.current) {
+      setStatus("error");
+      return;
+    }
 
     // Validación final antes de enviar
     const isFormValid =
@@ -171,7 +180,7 @@ const ContactSection = () => {
   };
 
   return (
-    <motion.section
+    <m.section
       id="contact"
       aria-labelledby="contact-heading"
       className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-2xl dark:shadow-gray-950/50 max-w-7xl mx-auto md:p-12"
@@ -187,18 +196,18 @@ const ContactSection = () => {
       </h2>
 
       {loading && (
-        <motion.div
+        <m.div
           className="text-center text-teal-600 dark:text-teal-400 font-semibold text-xl py-10"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.3 }}
         >
           Enviando mensaje...
-        </motion.div>
+        </m.div>
       )}
 
       {status && !loading && (
-        <motion.div
+        <m.div
           className={`text-center font-semibold text-xl py-10 ${
             status === "success"
               ? "text-teal-600 dark:text-teal-400"
@@ -211,7 +220,7 @@ const ContactSection = () => {
           {status === "success"
             ? "¡Mensaje enviado con éxito! Gracias por contactarme."
             : "Error al enviar el mensaje. Revisa los campos e intenta nuevamente."}
-        </motion.div>
+        </m.div>
       )}
 
       {!status && !loading && (
@@ -283,17 +292,24 @@ const ContactSection = () => {
             validateFn={validateBody}
           />
 
+          <ReCAPTCHA
+            sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+            onChange={(token) => (captchaRef.current.set = token)}
+            onExpired={() => (captchaRef.current = null)}
+          />
+
           <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 pt-2">
-            <motion.button
+            <m.button
               type="submit"
+              disabled={!Object.values(formValidity).every(Boolean)}
               className="btn btn-primary shadow-lg shadow-teal-500/50"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               Enviar Mensaje
-            </motion.button>
+            </m.button>
 
-            <motion.button
+            <m.button
               type="button"
               onClick={handleReset}
               className="w-full sm:w-auto px-8 py-3 text-gray-800 bg-gray-200 rounded-full font-semibold cursor-pointer shadow-md hover:bg-gray-300 transition-colors duration-300 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400 hover-glow"
@@ -301,7 +317,7 @@ const ContactSection = () => {
               whileTap={{ scale: 0.98 }}
             >
               Borrar Formulario
-            </motion.button>
+            </m.button>
           </div>
 
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
@@ -309,7 +325,7 @@ const ContactSection = () => {
           </p>
         </form>
       )}
-    </motion.section>
+    </m.section>
   );
 };
 

@@ -1,10 +1,14 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
+import { FaExternalLinkAlt, FaLock } from "react-icons/fa";
 
 const getImage = (name) => {
   const baseUrl = import.meta.env.BASE_URL;
   return `${baseUrl}${name}`;
 };
+
+// Función de utilidad para validar si el link existe y es válido
+const isValidLink = (link) => link && link !== "not found" && link !== "";
 
 const projectsData = [
   {
@@ -129,15 +133,13 @@ const ProjectCard = ({
   demoLink,
   githubLink,
 }) => {
-  // Función de utilidad para validar si el link existe y es válido
-  const isValidLink = (link) => link && link !== "not found" && link !== "";
 
   const hasDemo = isValidLink(demoLink);
   const hasGit = isValidLink(githubLink);
 
   return (
-    <motion.article
-      className="project-card flex flex-col bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-2xl dark:shadow-gray-950/50 transition-all duration-300 group"
+    <m.article
+      className="project-card flex flex-col bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-2xl dark:shadow-gray-950/50 transition-transform duration-300 group"
       variants={cardVariants}
       whileHover="hover"
     >
@@ -162,8 +164,8 @@ const ProjectCard = ({
 
         <footer className="mt-4">
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            {techStack.map((techClass, index) => (
-              <TechIcon key={index} deviconClass={techClass} />
+            {techStack.map((techClass) => (
+              <TechIcon key={techClass} deviconClass={techClass} />
             ))}
           </div>
 
@@ -176,7 +178,7 @@ const ProjectCard = ({
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 text-sm font-medium text-teal-600 dark:text-teal-400 hover:text-teal-800 dark:hover:text-teal-300 transition-colors group-hover:underline"
               >
-                <i className="bi bi-link-45deg text-lg"></i>
+                <FaExternalLinkAlt className="text-base" />
                 <span>Demo Live</span>
               </a>
             )}
@@ -196,7 +198,7 @@ const ProjectCard = ({
             {/* Caso Ingenioso: Si no tiene ninguna de las dos */}
             {!hasDemo && !hasGit && (
               <div className="flex items-center space-x-2 text-xs font-semibold text-gray-500 dark:text-gray-500 bg-gray-100 dark:bg-gray-700/50 px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700">
-                <i className="bi bi-lock-fill"></i>
+                <FaLock />
                 <span className="uppercase tracking-wider">
                   Proyecto Privado / NDA
                 </span>
@@ -205,13 +207,13 @@ const ProjectCard = ({
           </div>
         </footer>
       </div>
-    </motion.article>
+    </m.article>
   );
 };
 
 const ProjectsSection = () => {
   return (
-    <motion.section
+    <m.section
       id="projects"
       aria-labelledby="projects-heading"
       className="space-y-8 max-w-7xl mx-auto p-4 md:p-8"
@@ -227,12 +229,12 @@ const ProjectsSection = () => {
         Proyectos Destacados 🚀
       </h2>
 
-      <motion.div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {projectsData.map((project, index) => (
-          <ProjectCard key={index} {...project} />
+      <m.div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {projectsData.map((project) => (
+          <ProjectCard key={project.title} {...project} />
         ))}
-      </motion.div>
-    </motion.section>
+      </m.div>
+    </m.section>
   );
 };
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BiSun, BiMoon, BiMenu, BiX } from "react-icons/bi";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
 
 const navItems = [
@@ -41,20 +41,20 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
                 smooth={true}
                 duration={500}
                 offset={-80}
-                className="text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 px-3 py-2 rounded-md font-medium cursor-pointer transition-all duration-200"
+                className="text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 px-3 py-2 rounded-md font-medium cursor-pointer transition-colors duration-200"
               >
                 {item.name}
               </ScrollLink>
             ))}
 
-            <motion.button
+            <m.button
               onClick={toggleTheme}
               aria-label="Alternar modo claro/oscuro"
               className="text-2xl p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500"
               whileTap={{ rotate: 20 }}
             >
               {isDarkMode ? <BiSun /> : <BiMoon />}
-            </motion.button>
+            </m.button>
           </div>
 
           {/* Mobile */}
@@ -79,7 +79,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -93,21 +93,21 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
                 duration={500}
                 offset={-80}
                 onClick={handleLinkClick}
-                className="block text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 px-3 py-2 rounded-md font-medium cursor-pointer transition-all duration-200"
+                className="block text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 px-3 py-2 rounded-md font-medium cursor-pointer transition-colors duration-200"
               >
                 {item.name}
               </ScrollLink>
             ))}
 
-            <motion.div
+            <m.button
               onClick={toggleTheme}
               aria-label="Alternar modo claro/oscuro"
               className="mt-2 text-2xl p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 w-full flex justify-center"
               whileTap={{ rotate: 20 }}
             >
               {isDarkMode ? <BiSun /> : <BiMoon />}
-            </motion.div>
-          </motion.div>
+            </m.button>
+          </m.div>
         )}
       </AnimatePresence>
     </nav>

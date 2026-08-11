@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 
 const faqData = [
   {
@@ -48,17 +48,23 @@ const FAQItem = ({ question, answer, isHTML = false }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <motion.div
+    <m.div
+      role="button"
+      tabIndex={0}
+      onClick={() => setIsOpen(!isOpen)}
+      onKeyDown={(e) =>
+        (e.key === "Enter" || e.key === " ") && setIsOpen(!isOpen)
+      }
+      aria-expanded={isOpen}
       className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg cursor-pointer border-l-4 border-teal-500 dark:border-teal-400"
       layout
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, type: "spring", stiffness: 120 }}
-      onClick={() => setIsOpen(!isOpen)}
+      transition={{ type: "spring", stiffness: 120 }}
     >
       <div className="flex items-center justify-between font-semibold text-lg text-gray-900 dark:text-white">
         {question}
-        <motion.svg
+        <m.svg
           className={`w-6 h-6 text-teal-500 dark:text-teal-400 transition-transform duration-300`}
           style={{ rotate: isOpen ? 180 : 0 }}
           fill="none"
@@ -71,16 +77,16 @@ const FAQItem = ({ question, answer, isHTML = false }) => {
             strokeWidth="2"
             d="M19 9l-7 7-7-7"
           ></path>
-        </motion.svg>
+        </m.svg>
       </div>
 
       <AnimatePresence initial={false}>
         {isOpen && (
-          <motion.div
+          <m.div
             key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
             className="overflow-hidden mt-3 pt-3 border-t border-gray-200 dark:border-gray-700 text-base text-gray-700 dark:text-gray-300"
           >
@@ -89,10 +95,10 @@ const FAQItem = ({ question, answer, isHTML = false }) => {
             ) : (
               <span>{answer}</span>
             )}
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </m.div>
   );
 };
 
@@ -115,8 +121,8 @@ const FAQSection = () => {
       </div>
 
       <div className="lg:col-span-3 space-y-4 mt-6 lg:mt-0">
-        {faqData.map((faq, index) => (
-          <FAQItem key={index} {...faq} />
+        {faqData.map((faq) => (
+          <FAQItem key={faq.question} {...faq} />
         ))}
       </div>
     </section>
