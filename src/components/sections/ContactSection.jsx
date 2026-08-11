@@ -19,7 +19,6 @@ const FieldWrapper = ({
   required = false,
   value,
   setValue,
-  onValidate,
   validateFn,
   rows,
 }) => {
@@ -30,7 +29,6 @@ const FieldWrapper = ({
     setTouched(true);
     const isValid = validateFn ? validateFn(value) : true;
     setValid(isValid);
-    onValidate && onValidate(name, isValid);
   };
 
   const isTextarea = type === "textarea";
@@ -101,35 +99,23 @@ const ContactSection = () => {
     subject: "",
     body: "",
   });
-  
 
-  const [formValidity, setFormValidity] = useState({
-    name: false,
-    email: false,
-    phone: true,
-    subject: false,
-    body: false,
-  });
   const captchaRef = useRef(null);
-
   const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const isFormValid =
+    validateName(formData.name) &&
+    validateEmail(formData.email) &&
+    validatePhone(formData.phone) &&
+    validateSubject(formData.subject) &&
+    validateBody(formData.body);
 
   const handleChange = (field) => (value) =>
     setFormData((prev) => ({ ...prev, [field]: value }));
 
-  const handleValidate = (field, isValid) =>
-    setFormValidity((prev) => ({ ...prev, [field]: isValid }));
-
   const handleReset = () => {
     setFormData({ name: "", email: "", phone: "", subject: "", body: "" });
-    setFormValidity({
-      name: false,
-      email: false,
-      phone: true,
-      subject: false,
-      body: false,
-    });
     setStatus(null);
     captchaRef.current = null;
   };
@@ -141,14 +127,6 @@ const ContactSection = () => {
       setStatus("error");
       return;
     }
-
-    // Validación final antes de enviar
-    const isFormValid =
-      validateName(formData.name) &&
-      validateEmail(formData.email) &&
-      validatePhone(formData.phone) &&
-      validateSubject(formData.subject) &&
-      validateBody(formData.body);
 
     if (!isFormValid) {
       setStatus("error");
@@ -167,7 +145,7 @@ const ContactSection = () => {
           subject: formData.subject,
           message: formData.body,
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
       setStatus("success");
       handleReset();
@@ -238,7 +216,6 @@ const ContactSection = () => {
                 required
                 value={formData.name}
                 setValue={handleChange("name")}
-                onValidate={handleValidate}
                 validateFn={validateName}
               />
               <FieldWrapper
@@ -250,7 +227,6 @@ const ContactSection = () => {
                 required
                 value={formData.email}
                 setValue={handleChange("email")}
-                onValidate={handleValidate}
                 validateFn={validateEmail}
               />
               <FieldWrapper
@@ -261,7 +237,6 @@ const ContactSection = () => {
                 placeholder="Ej: +593 99 000 0000"
                 value={formData.phone}
                 setValue={handleChange("phone")}
-                onValidate={handleValidate}
                 validateFn={validatePhone}
               />
               <FieldWrapper
@@ -272,7 +247,6 @@ const ContactSection = () => {
                 required
                 value={formData.subject}
                 setValue={handleChange("subject")}
-                onValidate={handleValidate}
                 validateFn={validateSubject}
               />
             </div>
@@ -288,20 +262,19 @@ const ContactSection = () => {
             rows={6}
             value={formData.body}
             setValue={handleChange("body")}
-            onValidate={handleValidate}
             validateFn={validateBody}
           />
 
           <ReCAPTCHA
             sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-            onChange={(token) => (captchaRef.current.set = token)}
+            onChange={(token) => (captchaRef.current = token)}
             onExpired={() => (captchaRef.current = null)}
           />
 
           <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 pt-2">
             <m.button
               type="submit"
-              disabled={!Object.values(formValidity).every(Boolean)}
+              disabled={!isFormValid}
               className="btn btn-primary shadow-lg shadow-teal-500/50"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
