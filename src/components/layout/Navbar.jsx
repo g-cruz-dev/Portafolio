@@ -4,8 +4,8 @@ import { AnimatePresence, m } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
 
 const navItems = [
-  { name: "Sobre mí", to: "about" },
-  { name: "Experiencia", to: "skills" },
+  { name: "Sobre mí", to: "home" },
+  { name: "Experiencia", to: "about" },
   { name: "Proyectos", to: "projects" },
   { name: "Contacto", to: "contact" },
 ];

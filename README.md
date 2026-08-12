@@ -74,6 +74,10 @@
 
 ---
 
+npx react-doctor@latest
+
+RealFaviconGenerator pweb para el favicon
+
 npm install react-icons
 npm install react-router-dom
 npm install framer-motion

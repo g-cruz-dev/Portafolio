@@ -1,6 +1,5 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { HashRouter } from "react-router-dom";
 import { MotionConfig, LazyMotion, domAnimation } from "framer-motion";
 import App from "./App.jsx";
 import "./index.css";
@@ -9,9 +8,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <MotionConfig reducedMotion="user">
       <LazyMotion features={domAnimation} strict>
-        <HashRouter>
-          <App />
-        </HashRouter>
+        <App />
       </LazyMotion>
     </MotionConfig>
   </StrictMode>,
