@@ -57,30 +57,31 @@ const projectsData = [
     githubLink: "https://github.com/g-cruz-dev/Portafolio/tree/gh-pages",
   },
   {
-    title: "Sistema para Suscripción a Cursos",
+    title: "Sistema de Gestión de Pedidos para Cafetería",
     description:
-      "Sistema web Full-Stack para la gestión y suscripción de cursos en línea. Utilizando tecnologías empresariales y modernas.",
-    imageSrc: getImage("cap_luxore.png"),
+      "Sistema web Full-Stack para la gestión de productos y pedidos de una cafetería. Desarrollado con Spring Boot y MySQL en el backend, y React con TypeScript y Tailwind CSS en el frontend, utilizando una interfaz moderna con diseño glassmorphism.",
+    imageSrc: getImage("cap_cafeteria.png"),
     techStack: [
       "devicon-java-plain colored",
       "devicon-spring-plain colored",
       "devicon-react-original colored",
-      "devicon-postgresql-plain colored",
+      "devicon-typescript-plain colored",
+      "devicon-mysql-plain colored",
       "devicon-tailwindcss-plain colored",
     ],
-    demoLink: "not found", // Caso sin demo
-    githubLink: "not found", // Caso sin repo -> Mostrará "Privado"
+    demoLink: "not found", // Sin demo disponible
+    githubLink: "not found", // Repositorio privado/no disponible
   },
   {
     title: "Sistema de Monitoreo de Incidentes",
     description:
       "Desarrollo de un sistema web para monitorear incidentes en tiempo real, mejorando la respuesta operativa.",
-    imageSrc: getImage("cap_luxore.png"),
+    imageSrc: getImage("cap_incidentes.png"),
     techStack: [
       "devicon-java-plain colored",
       "devicon-spring-plain colored",
       "devicon-react-original colored",
-      "devicon-postgresql-plain colored",
+      "devicon-mysql-plain colored",
       "devicon-tailwindcss-plain colored",
     ],
     demoLink: "not found",
@@ -90,12 +91,12 @@ const projectsData = [
     title: "Sistema de Control de Citas Médicas",
     description:
       "Sistema web para la gestión eficiente de citas médicas y control de pacientes, utilizando base de datos NoSQL.",
-    imageSrc: getImage("cap_luxore.png"),
+    imageSrc: getImage("cap_citasMedicas.png"),
     techStack: [
       "devicon-java-plain colored",
       "devicon-spring-plain colored",
       "devicon-react-original colored",
-      "devicon-mongodb-plain colored",
+      "devicon-microsoftsqlserver-plain colored",
       "devicon-tailwindcss-plain colored",
     ],
     demoLink: "not found",

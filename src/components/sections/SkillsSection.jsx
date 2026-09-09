@@ -59,9 +59,9 @@ const backendSkills = [
   { name: "Java", deviconClass: "devicon-java-plain colored" },
   { name: "Spring Boot", deviconClass: "devicon-spring-plain colored" },
   { name: "Google Apps Script", deviconClass: "devicon-google-plain colored" },
-  { name: "C#", deviconClass: "devicon-csharp-plain colored" },
-  { name: "ASP.NET Core 10", deviconClass: "devicon-dotnetcore-plain colored"},
-  { name: "PHP", deviconClass: "devicon-php-plain colored" },
+  //{ name: "C#", deviconClass: "devicon-csharp-plain colored" },
+  //{ name: "ASP.NET Core 10", deviconClass: "devicon-dotnetcore-plain colored"},
+  //{ name: "PHP", deviconClass: "devicon-php-plain colored" },
 ];
 
 const dbSkills = [
@@ -69,16 +69,20 @@ const dbSkills = [
   { name: "MySQL", deviconClass: "devicon-mysql-plain colored" },
   { name: "SQL Server", deviconClass: "devicon-microsoftsqlserver-plain colored"},
   { name: "Google Sheets DB", deviconClass: "devicon-googlecloud-plain colored" },
-  { name: "MongoDB", deviconClass: "devicon-mongodb-plain colored" },
-  { name: "Firebase", deviconClass: "devicon-firebase-plain colored" },
+  //{ name: "MongoDB", deviconClass: "devicon-mongodb-plain colored" },
+  //{ name: "Firebase", deviconClass: "devicon-firebase-plain colored" },
 ];
 
 const toolSkills = [
   { name: "VS Code", deviconClass: "devicon-vscode-plain colored" },
   { name: "Git", deviconClass: "devicon-git-plain colored" },
   { name: "GitHub", deviconClass: "devicon-github-original colored" },
-  { name: "IntelliJ IDEA", deviconClass: "devicon-intellij-plain colored" },
-  { name: "Docker", deviconClass: "devicon-docker-plain colored" },
+  //{ name: "IntelliJ IDEA", deviconClass: "devicon-intellij-plain colored" },
+  //{ name: "Docker", deviconClass: "devicon-docker-plain colored" },
+  //{ name: "Kubernetes", deviconClass: "devicon-kubernetes-plain colored" },
+  //{ name: "Astro", deviconClass: "devicon-astro-plain colored" },
+  //{ name: "Node.js", deviconClass: "devicon-nodejs-plain colored" },
+  //{ name: "Angular", deviconClass: "devicon-angular-plain colored" },
   {
     name: "Google Colab, Apps Script, Cloud",
     deviconClass: "devicon-googlecloud-plain colored",
