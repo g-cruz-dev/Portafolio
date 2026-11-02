@@ -67,8 +67,14 @@ const backendSkills = [
 const dbSkills = [
   { name: "PostgreSQL", deviconClass: "devicon-postgresql-plain colored" },
   { name: "MySQL", deviconClass: "devicon-mysql-plain colored" },
-  { name: "SQL Server", deviconClass: "devicon-microsoftsqlserver-plain colored"},
-  { name: "Google Sheets DB", deviconClass: "devicon-googlecloud-plain colored" },
+  {
+    name: "SQL Server",
+    deviconClass: "devicon-microsoftsqlserver-plain colored",
+  },
+  {
+    name: "Google Sheets DB",
+    deviconClass: "devicon-googlecloud-plain colored",
+  },
   //{ name: "MongoDB", deviconClass: "devicon-mongodb-plain colored" },
   //{ name: "Firebase", deviconClass: "devicon-firebase-plain colored" },
 ];

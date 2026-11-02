@@ -76,7 +76,7 @@
 
 npx react-doctor@latest
 
-RealFaviconGenerator pweb para el favicon
+Web para el favicon: https://realfavicongenerator.net/
 
 npm install react-icons
 npm install react-router-dom

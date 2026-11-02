@@ -22,3 +22,7 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Build
+dist/
+dist-ssr/

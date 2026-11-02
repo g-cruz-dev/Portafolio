@@ -9,7 +9,7 @@ import {
 
 const socialLinks = [
   {
-    href: "https://wa.me/593968157701?text=Hola,%20buenos%20días%20Guillermo",
+    href: "https://wa.me/593968157701?text=Hola%20Guillermo,%20buen%20día",
     Icon: BsWhatsapp,
     label: "Contactar por WhatsApp",
     hoverClass: "hover:text-green-400",

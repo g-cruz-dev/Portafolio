@@ -1,12 +1,12 @@
 import React from "react";
 import { m } from "framer-motion";
 import { FaWhatsapp, FaGithub, FaLinkedinIn, FaEnvelope } from "react-icons/fa";
-import ProfileImage from "/me.jpg";
+import ProfileImage from "/me.png";
 
 const socialLinks = [
   {
     icon: FaWhatsapp,
-    href: "https://wa.me/593968157701?text=Saludos%20Guillermo,%20vengo%20de%20tu%20*portfolio*",
+    href: "https://wa.me/593968157701?text=Hola%20Guillermo,%20buen%20día",
     label: "Contactar por WhatsApp",
     color: "hover:text-green-600 dark:hover:text-green-400",
   },
@@ -53,7 +53,7 @@ const HeroSection = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
     >
-      <div  className="grid lg:grid-cols-3 gap-8 items-center">
+      <div className="grid lg:grid-cols-3 gap-8 items-center">
         <m.figure
           className="lg:col-span-1 flex flex-col items-center justify-center bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-2xl dark:shadow-teal-900/50"
           variants={itemVariants}
@@ -148,9 +148,7 @@ const HeroSection = () => {
               Contactar
             </a>
             <a
-              href="https://drive.google.com/file/d/1Mql3B4saNmX_elX3OyuS8B4lI47P7KWK/preview"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="https://drive.google.com/file/d/1DB0TkAdl_lMJjPhgiwTLuT4pihPjDdPq/preview"
               className="btn btn-primary shadow-lg shadow-teal-500/50"
             >
               Ver CV

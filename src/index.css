@@ -3,21 +3,23 @@
 @tailwind utilities;
 
 @keyframes pulse-custom {
-    0%, 100% {
-        box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.6);
-    }
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.6);
+  }
 
-    50% {
-        box-shadow: 0 0 40px 20px rgba(20, 184, 166, 0.4);
-    }
+  50% {
+    box-shadow: 0 0 40px 20px rgba(20, 184, 166, 0.4);
+  }
 }
 
 .animate-pulse-slow {
-    animation: pulse-custom 4s infinite ease-in-out;
+  animation: pulse-custom 4s infinite ease-in-out;
 }
 
 @keyframes bounce-slow {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
     box-shadow: 0 10px 20px rgba(20, 184, 166, 0.2);
   }
@@ -33,7 +35,9 @@
     transform: scale(1);
   }
   50% {
-    text-shadow: 0 0 15px rgba(20, 184, 166, 0.6), 0 0 30px rgba(20, 184, 166, 0.4);
+    text-shadow:
+      0 0 15px rgba(20, 184, 166, 0.6),
+      0 0 30px rgba(20, 184, 166, 0.4);
     transform: scale(1.05);
   }
   100% {
@@ -77,14 +81,14 @@
   border-radius: inherit;
   padding: 2px;
   background: linear-gradient(120deg, transparent, #14b8a6, transparent);
-  -webkit-mask: 
-    linear-gradient(#000 0 0) content-box, 
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
 
   -webkit-mask-composite: xor;
 
-  mask: 
-    linear-gradient(#000 0 0) content-box, 
+  mask:
+    linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
 
   mask-composite: exclude;
@@ -99,23 +103,23 @@
 
 /* Custom Icon Integration */
 .custom-metronic-icon::before {
-    content: "";
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    background-image: url('https://preview.keenthemes.com/metronic8/demo1/assets/media/logos/favicon.ico');
-    background-size: contain;
-    background-repeat: no-repeat;
-    vertical-align: middle;
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-image: url("https://preview.keenthemes.com/metronic8/demo1/assets/media/logos/favicon.ico");
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
 .custom-kendo-icon::before {
-    content: "";
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    background-image: url('https://www.telerik.com/favicon.ico');
-    background-size: contain;
-    background-repeat: no-repeat;
-    vertical-align: middle;
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-image: url("https://www.telerik.com/favicon.ico");
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
 }
